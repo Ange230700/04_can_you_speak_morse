@@ -1,6 +1,7 @@
 // javascript\data\latinToMorse.js
 
 const latinToMorse = {
+  " ": "/",
   A: ".-",
   B: "-...",
   C: "-.-.",

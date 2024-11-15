@@ -7,9 +7,11 @@ import getMorseCharacterList from "./javascript/functions/getMorseCharacterList.
 import translateMorseCharacter from "./javascript/functions/translateMorseCharacter.js";
 import decode from "./javascript/functions/decode.js";
 
-console.log(getLatinCharacterList("Hello, world"));
 console.log(translateLatinCharacter("A"));
-console.log(encode("Hello, world"));
-console.log(getMorseCharacterList("......-...-..---,/.-----.-..-..-.."));
 console.log(translateMorseCharacter(".-"));
-console.log(decode("......-...-..---,/.-----.-..-..-.."));
+console.log(getLatinCharacterList("Hello, world"));
+console.log(
+  getMorseCharacterList(".... . .-.. .-.. --- , / .-- --- .-. .-.. -.."),
+);
+console.log(encode("Hello, world"));
+console.log(decode(".... . .-.. .-.. --- , / .-- --- .-. .-.. -.."));

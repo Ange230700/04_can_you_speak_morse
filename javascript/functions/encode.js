@@ -3,30 +3,41 @@
 import getLatinCharacterList from "./getLatinCharacterList";
 import translateLatinCharacter from "./translateLatinCharacter";
 
-function encode(text) {
-  const charactersFromText = getLatinCharacterList(text);
-  const morseCharactersFromText = [];
+function encode(latinText) {
+  const latinCharactersFromLatinText = getLatinCharacterList(latinText);
+
+  const morseCharactersGotFromTranslation = [];
+
   let morseText = "";
 
   //   this loop is to get the array of translated characters
   for (
     let positionInArray = 0;
-    positionInArray < charactersFromText.length;
+    positionInArray < latinCharactersFromLatinText.length;
     positionInArray++
   ) {
-    const character = charactersFromText[positionInArray];
+    const character = latinCharactersFromLatinText[positionInArray];
+
     const characterToUppercase = character.toUpperCase();
+
     const morseCharacter = translateLatinCharacter(characterToUppercase);
-    morseCharactersFromText[morseCharactersFromText.length] = morseCharacter;
+
+    morseCharactersGotFromTranslation[
+      morseCharactersGotFromTranslation.length
+    ] = morseCharacter;
   }
 
   //   this one is for writing the morse text
   for (
     let positionInArray = 0;
-    positionInArray < morseCharactersFromText.length;
+    positionInArray < morseCharactersGotFromTranslation.length;
     positionInArray++
   ) {
-    morseText += morseCharactersFromText[positionInArray];
+    if (positionInArray === morseCharactersGotFromTranslation.length - 1) {
+      morseText += morseCharactersGotFromTranslation[positionInArray];
+    } else {
+      morseText += morseCharactersGotFromTranslation[positionInArray] + " ";
+    }
   }
 
   return morseText;

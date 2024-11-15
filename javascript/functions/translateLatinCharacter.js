@@ -3,10 +3,6 @@
 import latinToMorse from "../data/latinToMorse";
 
 function translateLatinCharacter(characterToTranslate) {
-  if (characterToTranslate === " ") {
-    return "/";
-  }
-
   if (latinToMorse[characterToTranslate] === undefined) {
     return characterToTranslate;
   }
