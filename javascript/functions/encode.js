@@ -2,6 +2,7 @@
 
 import getLatinCharacterList from "./getLatinCharacterList";
 import translateLatinCharacter from "./translateLatinCharacter";
+import turnCharacterIntoUpperCase from "./turnCharacterIntoUpperCase";
 
 function encode(latinText) {
   const latinCharactersFromLatinText = getLatinCharacterList(latinText);
@@ -18,7 +19,7 @@ function encode(latinText) {
   ) {
     const character = latinCharactersFromLatinText[positionInArray];
 
-    const characterToUppercase = character.toUpperCase();
+    const characterToUppercase = turnCharacterIntoUpperCase(character);
 
     const morseCharacter = translateLatinCharacter(characterToUppercase);
 
