@@ -5,7 +5,9 @@ import translateMorseCharacter from "./translateMorseCharacter";
 
 function decode(morseText) {
   const morseCharactersFromMorseText = getMorseCharacterList(morseText);
-  const latinCharactersFromText = [];
+
+  const latinCharactersFromLatinText = [];
+
   let latinText = "";
 
   for (
@@ -14,16 +16,19 @@ function decode(morseText) {
     positionInArray++
   ) {
     const morseCharacter = morseCharactersFromMorseText[positionInArray];
+
     const latinCharacter = translateMorseCharacter(morseCharacter);
-    latinCharactersFromText[latinCharactersFromText.length] = latinCharacter;
+
+    latinCharactersFromLatinText[latinCharactersFromLatinText.length] =
+      latinCharacter;
   }
 
   for (
     let positionInArray = 0;
-    positionInArray < latinCharactersFromText.length;
+    positionInArray < latinCharactersFromLatinText.length;
     positionInArray++
   ) {
-    latinText += latinCharactersFromText[positionInArray];
+    latinText += latinCharactersFromLatinText[positionInArray];
   }
 
   return latinText;

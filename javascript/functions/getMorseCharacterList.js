@@ -1,18 +1,34 @@
 // javascript\functions\getMorseCharacterList.js
 
 function getMorseCharacterList(morseText) {
-  const morseCharactersFromText = [];
+  const morseCharactersFromMorseText = [];
+  let morseLetter = "";
 
   for (
     let morseCharacterPosition = 0;
     morseCharacterPosition < morseText.length;
     morseCharacterPosition++
   ) {
-    morseCharactersFromText[morseCharactersFromText.length] =
-      morseText[morseCharacterPosition];
+    if (morseText[morseCharacterPosition] === " ") {
+      morseCharactersFromMorseText[morseCharactersFromMorseText.length] =
+        morseLetter;
+
+      morseLetter = "";
+
+      continue;
+    } else if (morseCharacterPosition === morseText.length - 1) {
+      morseLetter += morseText[morseCharacterPosition];
+
+      morseCharactersFromMorseText[morseCharactersFromMorseText.length] =
+        morseLetter;
+
+      morseLetter = "";
+    } else {
+      morseLetter += morseText[morseCharacterPosition];
+    }
   }
 
-  return morseCharactersFromText;
+  return morseCharactersFromMorseText;
 }
 
 export default getMorseCharacterList;

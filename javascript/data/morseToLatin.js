@@ -1,6 +1,7 @@
 // javascript\data\morseToLatin.js
 
 const morseToLatin = {
+  "/": " ",
   "-": "T",
   "--": "M",
   "---": "O",
