@@ -2,12 +2,12 @@
 
 import latinToMorse from "../data/latinToMorse";
 
-function translateLatinCharacter(characterToTranslate) {
-  if (latinToMorse[characterToTranslate] === undefined) {
-    return characterToTranslate;
+function translateLatinCharacter(latinCharacterToTranslate) {
+  if (latinToMorse[latinCharacterToTranslate] === undefined) {
+    return latinCharacterToTranslate;
   }
 
-  return latinToMorse[characterToTranslate];
+  return latinToMorse[latinCharacterToTranslate];
 }
 
 export default translateLatinCharacter;

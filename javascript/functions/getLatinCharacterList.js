@@ -1,17 +1,18 @@
 // javascript\functions\getLatinCharacterList.js
 
-function getLatinCharacterList(text) {
-  const charactersFromText = [];
+function getLatinCharacterList(latinText) {
+  const latinCharactersFromLatinText = [];
 
   for (
-    let characterPosition = 0;
-    characterPosition < text.length;
-    characterPosition++
+    let latinCharacterPosition = 0;
+    latinCharacterPosition < latinText.length;
+    latinCharacterPosition++
   ) {
-    charactersFromText[charactersFromText.length] = text[characterPosition];
+    latinCharactersFromLatinText[latinCharactersFromLatinText.length] =
+      latinText[latinCharacterPosition];
   }
 
-  return charactersFromText;
+  return latinCharactersFromLatinText;
 }
 
 export default getLatinCharacterList;
