@@ -1,21 +1,30 @@
 // main.js
 
-import translateLatinCharacter from "./javascript/functions/translateLatinCharacter.js";
-import translateMorseCharacter from "./javascript/functions/translateMorseCharacter.js";
-import getLatinCharacterList from "./javascript/functions/getLatinCharacterList.js";
-import getMorseCharacterList from "./javascript/functions/getMorseCharacterList.js";
 import encode from "./javascript/functions/encode.js";
 import decode from "./javascript/functions/decode.js";
 
-console.log(
-  translateLatinCharacter("A"),
-  "<==>",
-  translateMorseCharacter(".-"),
-);
-console.log(
-  getLatinCharacterList("Hello, world"),
-  "<==>",
-  getMorseCharacterList(".... . .-.. .-.. --- , / .-- --- .-. .-.. -.."),
-);
-console.log(encode("Hello, world"));
-console.log(decode(".... . .-.. .-.. --- , / .-- --- .-. .-.. -.."));
+const latinInput = document.getElementById("latin-input");
+const morseInput = document.getElementById("morse-input");
+
+let isUpdatingLatin = false;
+let isUpdatingMorse = false;
+
+latinInput.addEventListener("input", () => {
+  if (!isUpdatingMorse) {
+    isUpdatingLatin = true;
+    const latinText = latinInput.value;
+    const morseText = encode(latinText);
+    morseInput.value = morseText;
+    isUpdatingLatin = false;
+  }
+});
+
+morseInput.addEventListener("input", () => {
+  if (!isUpdatingLatin) {
+    isUpdatingMorse = true;
+    const morseText = morseInput.value;
+    const latinText = decode(morseText);
+    latinInput.value = latinText;
+    isUpdatingMorse = false;
+  }
+});
