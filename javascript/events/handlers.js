@@ -1,14 +1,12 @@
 // javascript\events\handlers.js
 
 import { createAppComponent } from "../components/creation.js";
-import { decode, encode } from "../helpers/functions.js";
+import { printLatinText, printMorseCode } from "../dom/manipulation.js";
 
 const handleTranslationToMorse = (isUpdatingLatin, isUpdatingMorse) => {
   if (!isUpdatingMorse) {
     isUpdatingLatin = true;
-    document.querySelector("#morse-input").value = encode(
-      document.querySelector("#latin-input").value,
-    );
+    printMorseCode();
     isUpdatingLatin = false;
   }
 };
@@ -16,9 +14,7 @@ const handleTranslationToMorse = (isUpdatingLatin, isUpdatingMorse) => {
 const handleTranslationToLatin = (isUpdatingMorse, isUpdatingLatin) => {
   if (!isUpdatingLatin) {
     isUpdatingMorse = true;
-    document.querySelector("#latin-input").value = decode(
-      document.querySelector("#morse-input").value,
-    );
+    printLatinText();
     isUpdatingMorse = false;
   }
 };
